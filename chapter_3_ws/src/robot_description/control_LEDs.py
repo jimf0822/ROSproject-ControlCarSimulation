@@ -53,9 +53,9 @@ def traffic_light():
             # Turn on the green LED
             turn_on_led(GREEN_LED_PIN)
             rospy.loginfo('Green Light: Go!')
-            #Control the speed of car simulation in Gazebo
             start_time = rospy.Time.now()
             duration = rospy.Duration(5.0)
+            #Control the speed of car simulation in Gazebo
             while rospy.Time.now() - start_time < duration:
                 cmd_vel_msg.linear.x = 0.8
                 cmd_vel_pub.publish(cmd_vel_msg)
@@ -65,9 +65,9 @@ def traffic_light():
             # Turn on the yellow LED
             turn_on_led(YELLOW_LED_PIN)
             rospy.loginfo('Yellow Light: Slow down!')
-            #Control the speed of car simulation in Gazebo
             start_time = rospy.Time.now()
             duration = rospy.Duration(5.0)
+            #Control the speed of car simulation in Gazebo
             while rospy.Time.now() - start_time < duration:
                 cmd_vel_msg.linear.x = 0.4
                 cmd_vel_pub.publish(cmd_vel_msg)
@@ -78,6 +78,7 @@ def traffic_light():
             rospy.loginfo('No Traffic Light: Slow down!')
             start_time = rospy.Time.now()
             duration = rospy.Duration(1.0)
+            #Control the speed of car simulation in Gazebo
             while rospy.Time.now() - start_time < duration:
                 cmd_vel_msg.linear.x = 0.1
                 cmd_vel_pub.publish(cmd_vel_msg)
